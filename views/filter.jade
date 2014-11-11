@@ -1,0 +1,28 @@
+extends layout
+block content
+    .container
+        .row
+            h1
+                | All Users are listed below , you can pick anyone and start to chat :)
+        .row
+            table.table.table-bordered
+                thead
+                    th
+                        | name
+                    th
+                tbody#users
+
+        #messageBox.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type="button", data-dismiss="modal")
+                            span(aria-hidden="true") &#215;
+                            span.sr-only Close
+                        h4#head.modal-title Modal title
+                    .modal-body
+                        textarea.form-control(rows="3" , id="mess")
+                    .modal-footer
+                        button.btn.btn-default(type="button", data-dismiss="modal") Close
+                        button.btn.btn-primary(type="button" , id="send") send
+    script(src="css/filter.js")

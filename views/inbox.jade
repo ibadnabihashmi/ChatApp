@@ -1,0 +1,33 @@
+extends layout
+block content
+    .container
+        .row
+            h1
+                | Below are the chats you have made , click on view to see the threads :)
+        .row
+            table.table.table-hover
+                thead
+                    th
+                        | User1
+                    th
+                        | User2
+                    th
+                tbody#inboxlist
+
+            // Button to trigger modal
+            // Modal
+            #messageinbox.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            button.close(type="button", data-dismiss="modal")
+                                span(aria-hidden="true") &#215;
+                                span.sr-only Close
+                            h4#head.modal-title Modal title
+                        .modal-body
+                            .scroller(style="height:470px", id="list", data-always-visible="1", data-rail-visible1="1")
+
+                        .modal-footer
+                            input.form-control.input-lg(type="text",id="replyMsg", placeholder="enter text")
+                            button.btn.btn-primary(type="button" , id="reply") send
+        script(src="css/inbox.js")
